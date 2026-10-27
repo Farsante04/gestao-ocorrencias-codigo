@@ -1,0 +1,103 @@
+/* Estilo do sistema: quadro verde de sala de aula + folha de caderno para as ocorrências */
+:root {
+  --quadro: #1f3b34;
+  --quadro-claro: #2d5248;
+  --giz: #eef1ee;
+  --papel: #f2f5f4;
+  --folha: #ffffff;
+  --tinta: #1c2a27;
+  --suave: #566762;
+  --linha: #d3dcd9;
+  --margem: #b83a3a;
+  --erro-fundo: #fbeaea;
+  --foco: #e0b93d;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--papel);
+  color: var(--tinta);
+  font: 16px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+h1, h2, h3 { margin: 0 0 .75rem; line-height: 1.2; letter-spacing: -.01em; }
+h2 { font-size: 1.7rem; font-weight: 750; }
+h3 { font-size: 1.2rem; font-weight: 700; }
+a { color: var(--quadro); font-weight: 600; }
+[hidden] { display: none !important; }
+:focus-visible { outline: 3px solid var(--foco); outline-offset: 2px; }
+
+/* Topo */
+.topo {
+  display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between;
+  gap: .5rem 2rem; padding: .9rem 1.5rem;
+  background: var(--quadro); color: var(--giz);
+}
+.topo h1 { margin: 0; font-size: 1.15rem; font-weight: 700; }
+.topo nav { display: flex; gap: 1.5rem; }
+.topo nav a { color: var(--giz); font-weight: 500; text-decoration: none; opacity: .75; padding-bottom: .1rem; }
+.topo nav a:hover { opacity: 1; }
+.topo nav a.activo { opacity: 1; border-bottom: 2px solid var(--giz); }
+
+main { max-width: 960px; margin: 0 auto; padding: 1.75rem 1.5rem 3rem; }
+
+/* Formulários */
+input, select, textarea, button { font: inherit; }
+input, select, textarea {
+  width: 100%; padding: .55rem .7rem;
+  border: 1px solid var(--linha); border-radius: 4px; background: var(--folha); color: var(--tinta);
+}
+label { display: block; font-size: .9rem; color: var(--suave); }
+label input, label select, label textarea { margin-top: .3rem; }
+textarea { resize: vertical; }
+
+button {
+  background: var(--quadro); color: var(--giz);
+  border: 0; border-radius: 4px; padding: .65rem 1.3rem; font-weight: 600; cursor: pointer;
+}
+button:hover { background: var(--quadro-claro); }
+button:disabled { opacity: .6; cursor: wait; }
+
+.grelha { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
+.grelha .largo { grid-column: 1 / -1; }
+.grelha button { grid-column: 1 / -1; justify-self: start; }
+
+.erros {
+  margin: 1rem 0; padding: .65rem 1rem;
+  background: var(--erro-fundo); color: var(--margem);
+  border-left: 3px solid var(--margem); border-radius: 4px;
+}
+.erros ul { margin: 0; padding-left: 1.1rem; }
+
+/* Lista de alunos */
+#pesquisa { max-width: 420px; }
+.tabela-scroll { overflow-x: auto; margin-top: 1.25rem; }
+table { width: 100%; border-collapse: collapse; }
+th, td { text-align: left; padding: .7rem .8rem; border-bottom: 1px solid var(--linha); }
+th { font-size: .85rem; font-weight: 600; color: var(--suave); border-bottom: 2px solid var(--quadro); }
+tbody tr:hover { background: var(--folha); }
+
+/* Ficha do aluno */
+.ficha { padding-bottom: 1.25rem; margin-bottom: 1.5rem; border-bottom: 2px solid var(--quadro); }
+.dados { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 0; }
+.dados dt { font-size: .85rem; color: var(--suave); }
+.dados dd { margin: 0; font-weight: 600; }
+
+/* Formulário de nova ocorrência */
+.registo { background: var(--folha); border: 1px solid var(--linha); border-radius: 6px; padding: 1.25rem; margin-bottom: 2rem; }
+
+/* Ocorrências: uma folha de caderno com margem vermelha */
+.caderno {
+  list-style: none; margin: 0; padding: 0;
+  background: var(--folha); border: 1px solid var(--linha); border-left: 4px solid var(--margem);
+}
+.caderno li { padding: .9rem 1.1rem; border-bottom: 1px solid var(--linha); }
+.caderno li:last-child { border-bottom: 0; }
+.caderno .topo-registo { display: flex; justify-content: space-between; gap: 1rem; font-weight: 700; }
+.caderno .topo-registo time { font-weight: 500; color: var(--suave); }
+.caderno p { margin: .35rem 0; max-width: 70ch; }
+.caderno .obs { color: var(--suave); }
+.caderno small { color: var(--suave); }
+.vazio { color: var(--suave); }

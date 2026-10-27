@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Novo aluno · Ocorrências Escolares</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topo">
+    <h1>Ocorrências Escolares</h1>
+    <nav>
+      <a href="index.html">Alunos</a>
+      <a href="aluno-novo.html" class="activo">Novo aluno</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Novo aluno</h2>
+
+    <div id="erros" class="erros" hidden></div>
+
+    <form id="formulario" class="grelha">
+      <label>Número de matrícula
+        <input type="text" name="numero_matricula" required maxlength="20">
+      </label>
+      <label>Nome completo
+        <input type="text" name="nome" required maxlength="100">
+      </label>
+      <label>Classe
+        <input type="number" name="classe" required min="1" max="13">
+      </label>
+      <label>Turma
+        <input type="text" name="turma" required maxlength="10" placeholder="Ex.: A">
+      </label>
+      <label>Nome do encarregado de educação (opcional)
+        <input type="text" name="nome_encarregado" maxlength="100">
+      </label>
+      <label>Contacto do encarregado
+        <input type="tel" name="contacto_encarregado" required placeholder="Ex.: 923456789">
+      </label>
+      <button type="submit">Guardar aluno</button>
+    </form>
+  </main>
+
+  <script src="js/common.js"></script>
+  <script src="js/aluno-novo.js"></script>
+</body>
+</html>

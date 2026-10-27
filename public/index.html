@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Alunos · Ocorrências Escolares</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topo">
+    <h1>Ocorrências Escolares</h1>
+    <nav>
+      <a href="index.html" class="activo">Alunos</a>
+      <a href="aluno-novo.html">Novo aluno</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Alunos</h2>
+    <label>Pesquisar por nome ou matrícula
+      <input type="search" id="pesquisa" placeholder="Ex.: Ana ou 2026-014">
+    </label>
+
+    <div id="erros" class="erros" hidden></div>
+
+    <div class="tabela-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>Matrícula</th>
+            <th>Nome</th>
+            <th>Classe</th>
+            <th>Turma</th>
+            <th>Ocorrências</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="lista"></tbody>
+      </table>
+    </div>
+    <p id="vazio" class="vazio" hidden>Nenhum aluno encontrado. <a href="aluno-novo.html">Registar novo aluno</a></p>
+  </main>
+
+  <script src="js/common.js"></script>
+  <script src="js/lista.js"></script>
+</body>
+</html>

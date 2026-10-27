@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ficha do aluno · Ocorrências Escolares</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topo">
+    <h1>Ocorrências Escolares</h1>
+    <nav>
+      <a href="index.html" class="activo">Alunos</a>
+      <a href="aluno-novo.html">Novo aluno</a>
+    </nav>
+  </header>
+
+  <main>
+    <p><a href="index.html">Voltar à lista de alunos</a></p>
+
+    <div id="erros" class="erros" hidden></div>
+
+    <section id="ficha" class="ficha" hidden>
+      <h2 id="aluno-nome"></h2>
+      <dl class="dados">
+        <div><dt>Matrícula</dt><dd id="aluno-matricula"></dd></div>
+        <div><dt>Classe e turma</dt><dd id="aluno-turma"></dd></div>
+        <div><dt>Encarregado de educação</dt><dd id="aluno-encarregado"></dd></div>
+        <div><dt>Contacto</dt><dd id="aluno-contacto"></dd></div>
+      </dl>
+    </section>
+
+    <section id="nova" class="registo" hidden>
+      <h3>Registar ocorrência</h3>
+      <div id="erros-form" class="erros" hidden></div>
+      <form id="formulario" class="grelha">
+        <label>Categoria
+          <select name="categoria" id="categoria" required></select>
+        </label>
+        <label>Data
+          <input type="date" name="data_ocorrencia" id="data" required>
+        </label>
+        <label>Funcionário responsável
+          <select name="funcionario_id" id="funcionario" required></select>
+        </label>
+        <label class="largo">Descrição
+          <textarea name="descricao" rows="3" required minlength="10"></textarea>
+        </label>
+        <label class="largo">Observação (opcional)
+          <textarea name="observacao" rows="2"></textarea>
+        </label>
+        <button type="submit">Guardar ocorrência</button>
+      </form>
+    </section>
+
+    <section id="historico" hidden>
+      <h3>Ocorrências <span id="total"></span></h3>
+      <ol id="ocorrencias" class="caderno"></ol>
+      <p id="sem-ocorrencias" class="vazio" hidden>Este aluno ainda não tem ocorrências registadas.</p>
+    </section>
+  </main>
+
+  <script src="js/common.js"></script>
+  <script src="js/aluno.js"></script>
+</body>
+</html>
